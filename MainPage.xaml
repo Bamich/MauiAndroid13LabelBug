@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+	x:Class="MauiLabelBug.MainPage"
+	xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+	<ScrollView>
+		<VerticalStackLayout
+			Padding="0" Spacing="0"
+			WidthRequest="350">
+
+			<Slider
+				HorizontalOptions="Fill"
+				Minimum="70" Maximum="72" ValueChanged="Slider_ValueChanged" />
+
+			<Label
+				Margin="10"
+				Padding="{Binding MarginValue}"
+				FontSize="16"
+				Text="{Binding MarginValue.Left}" />
+
+			<!--  Label is OK  -->
+			<Label
+				Margin="11"
+				Padding="{Binding MarginValue}"
+				FontSize="16" Text="At any time, but not later than one month before the expiration date."
+				BackgroundColor="LightGreen" />
+
+			<!--  Label is not OK (clipped)  -->
+			<Border
+				Margin="10"
+				Padding="{Binding MarginValue}"
+				BackgroundColor="LightPink">
+				<Label FontSize="16" Text="At any time, but not later than one month before the expiration date." />
+			</Border>
+
+		</VerticalStackLayout>
+	</ScrollView>
+</ContentPage>
